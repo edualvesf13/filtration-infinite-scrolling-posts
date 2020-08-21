@@ -22,8 +22,15 @@ const addPostInToDOM = async () => {
     postsContainer.innerHTML += postsTemplate
 }
 
+const removeLoader = () => {
+    setTimeout( function(){
+        loaderContainer.classList.remove('show')
+    } , 1000)
+}
+
 const showLoader = () => {
     loaderContainer.classList.add('show')
+    removeLoader()
 }
 
 window.addEventListener('scroll', () => {
