@@ -21,4 +21,18 @@ const addPostInToDOM = async () => {
     postsContainer.innerHTML += postsTemplate
 }
 
+window.addEventListener('scroll', () => {
+
+    // clientHeight - é a altura interna de um elemento em pixels
+    // scrollHeight - é a medida da altura do conteúdo de um elemento, incluindo conteúdo não visível na tela devido ao estouro.
+    // scrollTop - obtém ou define o número de pixels quando o conteúdo de um elemento é rolado para baixo. 
+
+    const { clientHeight, scrollHeight, scrollTop } = document.documentElement
+    const isPageBottomAlmostReached = scrollTop + clientHeight >= scrollHeight - 10
+
+    if (isPageBottomAlmostReached) {
+        showLoader()
+    }
+})
+
 addPostInToDOM()
