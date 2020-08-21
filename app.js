@@ -1,4 +1,5 @@
 const postsContainer = document.querySelector('#posts-container')
+const loaderContainer = document.querySelector('.loader')
 let page = 1
 
 const getPosts = async () => {
@@ -19,6 +20,10 @@ const addPostInToDOM = async () => {
     ` ).join('')
 
     postsContainer.innerHTML += postsTemplate
+}
+
+const showLoader = () => {
+    loaderContainer.classList.add('show')
 }
 
 window.addEventListener('scroll', () => {
