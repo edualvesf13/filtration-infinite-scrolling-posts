@@ -22,9 +22,15 @@ const addPostInToDOM = async () => {
     postsContainer.innerHTML += postsTemplate
 }
 
+const getNextPosts = () => {
+    page++
+    addPostInToDOM()
+}
+
 const removeLoader = () => {
     setTimeout( function(){
         loaderContainer.classList.remove('show')
+        getNextPosts()
     } , 1000)
 }
 
